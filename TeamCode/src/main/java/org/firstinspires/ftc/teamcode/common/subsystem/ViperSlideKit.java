@@ -1,22 +1,18 @@
 package org.firstinspires.ftc.teamcode.common.subsystem;
 
-import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.gamepad1;
-import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.hardwareMap;
-
 import com.acmerobotics.dashboard.FtcDashboard;
 import com.acmerobotics.dashboard.telemetry.TelemetryPacket;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.Gamepad;
+
+import org.firstinspires.ftc.teamcode.config.Constants;
 
 public class ViperSlideKit {
     //Create Variables
-    DcMotor liftMotor;
+    DcMotor liftMotor = Constants.liftMotor;
     String encoder;
     double encoderValue;
-
-    //Initalize motor
-    public void init() {
-        liftMotor = hardwareMap.dcMotor.get("liftMotor");
-    }
+    Gamepad gamepad1 = Constants.gamepad;
 
     public void runOpMode() {
         //Get current lift position
@@ -39,7 +35,7 @@ public class ViperSlideKit {
     }
 
     //Add encoder position to FTCDashboard
-    public void telemtry(FtcDashboard dashboard, TelemetryPacket packet) {
+    public void telemetry(FtcDashboard dashboard, TelemetryPacket packet) {
         encoder = String.valueOf(encoderValue);
         packet.addLine("Encoder:" + encoder);
     }
