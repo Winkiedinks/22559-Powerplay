@@ -8,6 +8,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.common.drivebase.FieldOrientedMecanum;
+import org.firstinspires.ftc.teamcode.common.subsystem.IntakeClaw;
 import org.firstinspires.ftc.teamcode.common.subsystem.ViperSlideKit;
 import org.firstinspires.ftc.teamcode.config.Constants;
 
@@ -19,7 +20,10 @@ public class MainOpMode extends LinearOpMode {
         //Create subsystems, drivebase, and constants
         FieldOrientedMecanum mecanum = new FieldOrientedMecanum();
         ViperSlideKit lift = new ViperSlideKit();
+        IntakeClaw intake = new IntakeClaw();
         Constants constants = new Constants();
+
+        FtcDashboard dashboard = Constants.dashboard;
 
         //Initalize
         constants.init(hardwareMap, gamepad1);
@@ -31,13 +35,12 @@ public class MainOpMode extends LinearOpMode {
         while (opModeIsActive()) {
             mecanum.runOpMode();
             lift.runOpMode();
+            intake.runOpMode();
 
-            //Create dashboard and packet for telemetry
-            FtcDashboard dashboard = FtcDashboard.getInstance();
             TelemetryPacket packet = new TelemetryPacket();
-
             //Grab telemetry from subsystems
-            lift.telemetry(dashboard, packet);
+            lift.telemetry(packet);
+            intake.telemetry(packet);
 
             dashboard.sendTelemetryPacket(packet);
         }

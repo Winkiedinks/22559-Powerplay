@@ -1,35 +1,23 @@
 package org.firstinspires.ftc.teamcode.common.drivebase;
 
-import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.gamepad1;
-import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.hardwareMap;
-
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.Gamepad;
+
+import org.firstinspires.ftc.teamcode.config.Constants;
 
 public class RobotOrientedMecanum{
     //Create variables
-    DcMotor motorFrontLeft;
-    DcMotor motorBackLeft;
-    DcMotor motorFrontRight;
-    DcMotor motorBackRight;
-
-    //Initialize motors
-    public void init() {
-        motorFrontLeft = hardwareMap.dcMotor.get("frontLeft");
-        motorBackLeft = hardwareMap.dcMotor.get("backLeft");
-        motorFrontRight = hardwareMap.dcMotor.get("frontRight");
-        motorBackRight = hardwareMap.dcMotor.get("backRight");
-
-        // Reverse the right side motors
-        motorFrontRight.setDirection(DcMotorSimple.Direction.REVERSE);
-        motorBackRight.setDirection(DcMotorSimple.Direction.REVERSE);
-    }
+    DcMotor frontLeftMotor = Constants.frontLeftMotor;
+    DcMotor backLeftMotor = Constants.backLeftMotor;
+    DcMotor frontRightMotor = Constants.frontRightMotor;
+    DcMotor backRightMotor = Constants.backRightMotor;
+    Gamepad gamepad = Constants.gamepad;
 
     public void runOpMode() {
         //Gamepad readings
-        double y = gamepad1.left_stick_y;
-        double x = -gamepad1.left_stick_x * 1.1; // Counteract imperfect strafing
-        double rx = -gamepad1.right_stick_x;
+        double y = gamepad.left_stick_y;
+        double x = -gamepad.left_stick_x * 1.1; // Counteract imperfect strafing
+        double rx = -gamepad.right_stick_x;
 
         // Denominator is the largest motor power (absolute value) or 1
         // This ensures all the powers maintain the same ratio, but only when
@@ -40,9 +28,9 @@ public class RobotOrientedMecanum{
         double frontRightPower = (y - x - rx) / denominator;
         double backRightPower = (y + x - rx) / denominator;
 
-        motorFrontLeft.setPower(frontLeftPower);
-        motorBackLeft.setPower(backLeftPower);
-        motorFrontRight.setPower(frontRightPower);
-        motorBackRight.setPower(backRightPower);
+        frontLeftMotor.setPower(frontLeftPower);
+        backLeftMotor.setPower(backLeftPower);
+        frontRightMotor.setPower(frontRightPower);
+        backRightMotor.setPower(backRightPower);
     }
 }
