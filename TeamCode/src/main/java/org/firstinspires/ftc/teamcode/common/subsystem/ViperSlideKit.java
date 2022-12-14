@@ -9,13 +9,13 @@ import org.firstinspires.ftc.teamcode.config.Constants;
 
 public class ViperSlideKit {
     //Create Variables
-    DcMotor liftMotor = Constants.liftMotor;
+    //DcMotor liftMotor = Constants.liftMotor;
     String encoder;
     double encoderValue;
     Gamepad gamepad1 = Constants.gamepad;
 
     public void runOpMode() {
-        //Get current lift position
+        /*//Get current lift position
         encoderValue = liftMotor.getCurrentPosition();
 
         // If lift is in between max and min, any input goes
@@ -31,7 +31,7 @@ public class ViperSlideKit {
         else if (encoderValue > 1) {
             liftMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
             liftMotor.setPower(gamepad1.right_trigger);
-        }
+        } */
     }
 
     //Add encoder position to FTCDashboard

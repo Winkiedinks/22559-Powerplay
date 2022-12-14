@@ -24,10 +24,10 @@ public class Constants {
     public static DcMotor frontRightMotor = hardwareMap.dcMotor.get("frontRight");
     public static DcMotor backLeftMotor = hardwareMap.dcMotor.get("backLeft");
     public static DcMotor backRightMotor = hardwareMap.dcMotor.get("backRight");
-    public static DcMotor liftMotor = hardwareMap.dcMotor.get("liftMotor");
+    //public static DcMotor liftMotor = hardwareMap.dcMotor.get("liftMotor");
 
-    public static Servo leftServo = hardwareMap.servo.get("leftServo");
-    public static Servo rightServo = hardwareMap.servo.get("rightServo");
+    //public static Servo leftServo = hardwareMap.servo.get("leftServo");
+    //public static Servo rightServo = hardwareMap.servo.get("rightServo");
 
     public void init(HardwareMap hardwareMap, Gamepad gamepad) {
         this.hardwareMap = hardwareMap;
@@ -39,7 +39,7 @@ public class Constants {
         frontRightMotor.setDirection(DcMotorSimple.Direction.REVERSE);
         backRightMotor.setDirection(DcMotorSimple.Direction.REVERSE);
 
-        leftServo.setDirection(Servo.Direction.REVERSE);
+        //leftServo.setDirection(Servo.Direction.REVERSE);
     }
 
 }

@@ -12,37 +12,38 @@ import org.firstinspires.ftc.teamcode.common.subsystem.IntakeClaw;
 import org.firstinspires.ftc.teamcode.common.subsystem.ViperSlideKit;
 import org.firstinspires.ftc.teamcode.config.Constants;
 
-@Config
 @TeleOp
 public class MainOpMode extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
         //Create subsystems, drivebase, and constants
-        FieldOrientedMecanum mecanum = new FieldOrientedMecanum();
-        ViperSlideKit lift = new ViperSlideKit();
-        IntakeClaw intake = new IntakeClaw();
-        Constants constants = new Constants();
+        //FieldOrientedMecanum mecanum = new FieldOrientedMecanum();
+        //ViperSlideKit lift = new ViperSlideKit();
+        //IntakeClaw intake = new IntakeClaw();
+        //Constants constants = new Constants();
 
-        FtcDashboard dashboard = Constants.dashboard;
+        //FtcDashboard dashboard = Constants.dashboard;
 
         //Initalize
-        constants.init(hardwareMap, gamepad1);
+        Constants.init(hardwareMap, gamepad1);
 
         waitForStart();
 
         if (isStopRequested()) return;
 
         while (opModeIsActive()) {
-            mecanum.runOpMode();
-            lift.runOpMode();
-            intake.runOpMode();
+            //mecanum.runOpMode();
+            //lift.runOpMode();
+            //intake.runOpMode();
 
-            TelemetryPacket packet = new TelemetryPacket();
+            //TelemetryPacket packet = new TelemetryPacket();
             //Grab telemetry from subsystems
-            lift.telemetry(packet);
-            intake.telemetry(packet);
+            //lift.telemetry(packet);
+            //intake.telemetry(packet);
 
-            dashboard.sendTelemetryPacket(packet);
+            //dashboard.sendTelemetryPacket(packet);
+            double x = gamepad1.right_stick_x;
+
         }
     }
 }
