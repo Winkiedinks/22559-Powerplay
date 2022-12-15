@@ -14,6 +14,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.IMU;
 
 import org.firstinspires.ftc.teamcode.common.drivebase.FieldOrientedMecanum;
+import org.firstinspires.ftc.teamcode.common.drivebase.RobotOrientedMecanum;
 import org.firstinspires.ftc.teamcode.common.subsystem.IntakeClaw;
 import org.firstinspires.ftc.teamcode.common.subsystem.ViperSlideKit;
 import org.firstinspires.ftc.teamcode.config.Constants;
@@ -42,7 +43,7 @@ public class MainOpMode extends LinearOpMode {
 
         while (opModeIsActive()) {
             FieldOrientedMecanum.runOpMode();
-            //lift.runOpMode();
+            ViperSlideKit.runOpMode();
             //intake.runOpMode();
 
             //TelemetryPacket packet = new TelemetryPacket();

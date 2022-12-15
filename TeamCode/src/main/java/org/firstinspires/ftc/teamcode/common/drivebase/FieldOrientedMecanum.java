@@ -22,8 +22,8 @@ public class FieldOrientedMecanum{
 
     public static void runOpMode() {
             //Gamepad readings
-            double y = -gamepad.left_stick_x;
-            double x = gamepad.left_stick_y * 1.1; // Counteract imperfect strafing
+            double y = gamepad.left_stick_y;
+            double x = -gamepad.left_stick_x * 1.1; // Counteract imperfect strafing
             double rx = -gamepad.right_stick_x;
 
             // Get inverse IMU heading (rotation)

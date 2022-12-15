@@ -7,13 +7,13 @@ import org.firstinspires.ftc.teamcode.config.Constants;
 
 public class RobotOrientedMecanum{
     //Create variables
-    DcMotor frontLeftMotor = Constants.frontLeftMotor;
-    DcMotor backLeftMotor = Constants.backLeftMotor;
-    DcMotor frontRightMotor = Constants.frontRightMotor;
-    DcMotor backRightMotor = Constants.backRightMotor;
-    Gamepad gamepad = Constants.gamepad;
+    static DcMotor frontLeftMotor = Constants.frontLeftMotor;
+    static DcMotor backLeftMotor = Constants.backLeftMotor;
+    static DcMotor frontRightMotor = Constants.frontRightMotor;
+    static DcMotor backRightMotor = Constants.backRightMotor;
+    static Gamepad gamepad = Constants.gamepad;
 
-    public void runOpMode() {
+    public static void runOpMode() {
         //Gamepad readings
         double y = gamepad.left_stick_y;
         double x = -gamepad.left_stick_x * 1.1; // Counteract imperfect strafing

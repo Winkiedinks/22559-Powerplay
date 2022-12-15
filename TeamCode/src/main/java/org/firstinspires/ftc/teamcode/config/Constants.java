@@ -21,7 +21,7 @@ public class Constants {
     static RevHubOrientationOnRobot.UsbFacingDirection usbDirection;
     static RevHubOrientationOnRobot orientationOnRobot;
     public static DcMotor frontRightMotor;public static DcMotor frontLeftMotor;public static DcMotor backLeftMotor; public static DcMotor backRightMotor;
-    //public static DcMotor liftMotor = hardwareMap.dcMotor.get("liftMotor");
+    public static DcMotor liftMotor;
 
     //public static Servo leftServo = hardwareMap.servo.get("leftServo");
     //public static Servo rightServo = hardwareMap.servo.get("rightServo");
@@ -38,7 +38,7 @@ public class Constants {
         imu.initialize(new IMU.Parameters(orientationOnRobot)); frontRightMotor = hardwareMap.dcMotor.get("frontRight");
          backLeftMotor = hardwareMap.dcMotor.get("backLeft");
          backRightMotor = hardwareMap.dcMotor.get("backRight");
-         frontLeftMotor = hardwareMap.dcMotor.get("frontLeft");
+         frontLeftMotor = hardwareMap.dcMotor.get("frontLeft"); liftMotor = hardwareMap.dcMotor.get("liftMotor");
         frontRightMotor.setDirection(DcMotorSimple.Direction.REVERSE);
         backRightMotor.setDirection(DcMotorSimple.Direction.REVERSE);
 
