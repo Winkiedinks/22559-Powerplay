@@ -13,17 +13,17 @@ import org.firstinspires.ftc.teamcode.config.Constants;
 
 public class FieldOrientedMecanum{
     //Create variables
-    IMU imu = Constants.imu;
-    DcMotor frontLeftMotor = Constants.frontLeftMotor;
-    DcMotor frontRightMotor = Constants.frontRightMotor;
-    DcMotor backLeftMotor = Constants.backLeftMotor;
-    DcMotor backRightMotor = Constants.backRightMotor;
-    Gamepad gamepad = Constants.gamepad;
+    static IMU imu = Constants.imu;
+    static DcMotor frontLeftMotor = Constants.frontLeftMotor;
+    static DcMotor frontRightMotor = Constants.frontRightMotor;
+    static DcMotor backLeftMotor = Constants.backLeftMotor;
+    static DcMotor backRightMotor = Constants.backRightMotor;
+    static Gamepad gamepad = Constants.gamepad;
 
-    public void runOpMode() {
+    public static void runOpMode() {
             //Gamepad readings
-            double y = gamepad.left_stick_y;
-            double x = -gamepad.left_stick_x * 1.1; // Counteract imperfect strafing
+            double y = -gamepad.left_stick_x;
+            double x = gamepad.left_stick_y * 1.1; // Counteract imperfect strafing
             double rx = -gamepad.right_stick_x;
 
             // Get inverse IMU heading (rotation)

@@ -10,32 +10,35 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.IMU;
 import com.qualcomm.robotcore.hardware.Servo;
 
+import org.firstinspires.ftc.robotcore.external.Const;
+
 public class Constants {
     public static HardwareMap hardwareMap;
     public static Gamepad gamepad;
     public static FtcDashboard dashboard;
-
-    public static IMU imu = hardwareMap.get(IMU.class, "imu");
-    RevHubOrientationOnRobot.LogoFacingDirection logoDirection = RevHubOrientationOnRobot.LogoFacingDirection.UP;
-    RevHubOrientationOnRobot.UsbFacingDirection usbDirection = RevHubOrientationOnRobot.UsbFacingDirection.BACKWARD;
-    RevHubOrientationOnRobot orientationOnRobot = new RevHubOrientationOnRobot(logoDirection, usbDirection);
-
-    public static DcMotor frontLeftMotor = hardwareMap.dcMotor.get("frontLeft");
-    public static DcMotor frontRightMotor = hardwareMap.dcMotor.get("frontRight");
-    public static DcMotor backLeftMotor = hardwareMap.dcMotor.get("backLeft");
-    public static DcMotor backRightMotor = hardwareMap.dcMotor.get("backRight");
+    public static IMU imu;
+    static RevHubOrientationOnRobot.LogoFacingDirection logoDirection;
+    static RevHubOrientationOnRobot.UsbFacingDirection usbDirection;
+    static RevHubOrientationOnRobot orientationOnRobot;
+    public static DcMotor frontRightMotor;public static DcMotor frontLeftMotor;public static DcMotor backLeftMotor; public static DcMotor backRightMotor;
     //public static DcMotor liftMotor = hardwareMap.dcMotor.get("liftMotor");
 
     //public static Servo leftServo = hardwareMap.servo.get("leftServo");
     //public static Servo rightServo = hardwareMap.servo.get("rightServo");
 
-    public void init(HardwareMap hardwareMap, Gamepad gamepad) {
-        this.hardwareMap = hardwareMap;
-        this.gamepad = gamepad;
-        this.dashboard = FtcDashboard.getInstance();
+    public static void init(HardwareMap hardwareMap, Gamepad gamepad) {
+        Constants.hardwareMap = hardwareMap;
+        Constants.gamepad = gamepad;
+        Constants.dashboard = FtcDashboard.getInstance();
 
-        imu.initialize(new IMU.Parameters(orientationOnRobot));
-
+        imu = hardwareMap.get(IMU.class, "imu");
+        logoDirection = RevHubOrientationOnRobot.LogoFacingDirection.UP;
+        usbDirection = RevHubOrientationOnRobot.UsbFacingDirection.BACKWARD;
+        orientationOnRobot = new RevHubOrientationOnRobot(logoDirection, usbDirection);
+        imu.initialize(new IMU.Parameters(orientationOnRobot)); frontRightMotor = hardwareMap.dcMotor.get("frontRight");
+         backLeftMotor = hardwareMap.dcMotor.get("backLeft");
+         backRightMotor = hardwareMap.dcMotor.get("backRight");
+         frontLeftMotor = hardwareMap.dcMotor.get("frontLeft");
         frontRightMotor.setDirection(DcMotorSimple.Direction.REVERSE);
         backRightMotor.setDirection(DcMotorSimple.Direction.REVERSE);
 
