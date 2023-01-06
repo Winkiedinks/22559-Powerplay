@@ -44,7 +44,7 @@ public class MainOpMode extends LinearOpMode {
         while (opModeIsActive()) {
             FieldOrientedMecanum.runOpMode();
             ViperSlideKit.runOpMode();
-            //intake.runOpMode();
+            IntakeClaw.runOpMode();
 
             //TelemetryPacket packet = new TelemetryPacket();
             //Grab telemetry from subsystems

@@ -23,8 +23,8 @@ public class Constants {
     public static DcMotor frontRightMotor;public static DcMotor frontLeftMotor;public static DcMotor backLeftMotor; public static DcMotor backRightMotor;
     public static DcMotor liftMotor;
 
-    //public static Servo leftServo = hardwareMap.servo.get("leftServo");
-    //public static Servo rightServo = hardwareMap.servo.get("rightServo");
+    public static Servo leftServo;
+    public static Servo rightServo;
 
     public static void init(HardwareMap hardwareMap, Gamepad gamepad) {
         Constants.hardwareMap = hardwareMap;
@@ -36,13 +36,19 @@ public class Constants {
         usbDirection = RevHubOrientationOnRobot.UsbFacingDirection.BACKWARD;
         orientationOnRobot = new RevHubOrientationOnRobot(logoDirection, usbDirection);
         imu.initialize(new IMU.Parameters(orientationOnRobot)); frontRightMotor = hardwareMap.dcMotor.get("frontRight");
-         backLeftMotor = hardwareMap.dcMotor.get("backLeft");
-         backRightMotor = hardwareMap.dcMotor.get("backRight");
-         frontLeftMotor = hardwareMap.dcMotor.get("frontLeft"); liftMotor = hardwareMap.dcMotor.get("liftMotor");
+
+        backLeftMotor = hardwareMap.dcMotor.get("backLeft");
+        backRightMotor = hardwareMap.dcMotor.get("backRight");
+        frontLeftMotor = hardwareMap.dcMotor.get("frontLeft");
+        liftMotor = hardwareMap.dcMotor.get("liftMotor");
+
         frontRightMotor.setDirection(DcMotorSimple.Direction.REVERSE);
         backRightMotor.setDirection(DcMotorSimple.Direction.REVERSE);
 
-        //leftServo.setDirection(Servo.Direction.REVERSE);
+        leftServo = hardwareMap.servo.get("leftServo");
+        rightServo = hardwareMap.servo.get("rightServo");
+        leftServo.setDirection(Servo.Direction.REVERSE);
+        rightServo.setDirection(Servo.Direction.REVERSE);
     }
 
 }

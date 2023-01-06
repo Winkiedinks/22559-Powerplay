@@ -15,8 +15,8 @@ public class RobotOrientedMecanum{
 
     public static void runOpMode() {
         //Gamepad readings
-        double y = gamepad.left_stick_y;
-        double x = -gamepad.left_stick_x * 1.1; // Counteract imperfect strafing
+        double x = gamepad.left_stick_y * 1.1;
+        double y = -gamepad.left_stick_x; // Counteract imperfect strafing
         double rx = -gamepad.right_stick_x;
 
         // Denominator is the largest motor power (absolute value) or 1
