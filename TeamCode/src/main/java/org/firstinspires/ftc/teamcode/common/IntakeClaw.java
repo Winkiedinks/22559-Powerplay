@@ -1,25 +1,21 @@
-package org.firstinspires.ftc.teamcode.common.subsystem;
+package org.firstinspires.ftc.teamcode.common;
 
 import com.acmerobotics.dashboard.telemetry.TelemetryPacket;
-
 import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.Servo;
-;
-import org.firstinspires.ftc.teamcode.config.Constants;
+
+;import org.firstinspires.ftc.teamcode.config.Constants;
 
 public class IntakeClaw {
-    static Servo leftServo = Constants.leftServo;
-    static Servo rightServo = Constants.rightServo;
+    static Servo clawServo = Constants.clawServo;
     static Gamepad gamepad1 = Constants.gamepad;
 
     public static void runOpMode(){
         if (gamepad1.a){
-            leftServo.setPosition(.9);
-            rightServo.setPosition(1);
+            clawServo.setPosition(.5);
         }
         if (gamepad1.b){
-            leftServo.setPosition(.5);
-            rightServo.setPosition(.2);
+            clawServo.setPosition(.74);
         }
     }
 

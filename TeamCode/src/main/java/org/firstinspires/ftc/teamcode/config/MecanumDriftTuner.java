@@ -1,7 +1,5 @@
-package org.firstinspires.ftc.teamcode.config.tuner;
+package org.firstinspires.ftc.teamcode.config;
 
-import com.acmerobotics.dashboard.FtcDashboard;
-import com.acmerobotics.dashboard.telemetry.TelemetryPacket;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -18,7 +16,6 @@ public class MecanumDriftTuner extends LinearOpMode {
     DcMotor backLeftMotor = Constants.backLeftMotor;
     DcMotor frontRightMotor = Constants.frontRightMotor;
     DcMotor backRightMotor = Constants.backRightMotor;
-    FtcDashboard dashboard = Constants.dashboard;
     double theoHeading;
     double actHeading;
     double rx;
@@ -52,12 +49,7 @@ public class MecanumDriftTuner extends LinearOpMode {
             frontRightMotor.setPower(frontRightPower);
             backRightMotor.setPower(backRightPower);
 
-            TelemetryPacket packet = new TelemetryPacket();
-            String heading = String.valueOf(actHeading);
-            packet.addLine("Robot Heading:" + heading);
-            String hypoHeading = String.valueOf(theoHeading);
-            packet.addLine("Theoretical Heading:" + hypoHeading);
-            dashboard.sendTelemetryPacket(packet);
+
         }
     }
 }

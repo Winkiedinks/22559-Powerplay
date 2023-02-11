@@ -1,13 +1,7 @@
-package org.firstinspires.ftc.teamcode.config.tuner;
-
-import com.acmerobotics.dashboard.FtcDashboard;
-import com.acmerobotics.dashboard.telemetry.TelemetryPacket;
+package org.firstinspires.ftc.teamcode.config;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.hardware.Servo;
-
-import org.firstinspires.ftc.teamcode.config.Constants;
 
 @Autonomous(group = "tuner")
 public class IntakeServoTuner extends LinearOpMode{
