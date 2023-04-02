@@ -19,7 +19,7 @@ public class ParkAuto extends LinearOpMode {
 
         if (isStopRequested()) return;
 
-        RobotOrientedMecanum.forward();
+        RobotOrientedMecanum.backward();
         Thread.sleep(500);
 
     }

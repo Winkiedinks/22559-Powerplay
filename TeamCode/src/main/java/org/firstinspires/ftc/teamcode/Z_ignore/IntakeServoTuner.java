@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.config;
+package org.firstinspires.ftc.teamcode.Z_ignore;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
